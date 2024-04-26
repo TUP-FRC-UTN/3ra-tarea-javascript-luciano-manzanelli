@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script type="text/javascript" src="formulario.js"></script>
+
+    <script>
+
+        function validarForm() {
+            var nombre = document.getElementById('txtNombre').value;
+            var apellido = document.getElementById('txtApellido').value;
+            var edad = document.getElementById('txtEdad').value;
+            var radioSexo = document.getElementsByName('sexo');
+            var deportes = document.getElementById('cbDeportes');
+
+            if (nombre === "") {
+                alert("Debe ingresar un nombre");
+
+            }
+            if (apellido === "") {
+                alert("Debe ingresar un apellido");
+
+            }
+            if (isNaN(edad)) {
+                alert("Debe ingresar una edad");
+
+            }
+
+            var check = false;
+            for (let i = 0; i < radioSexo.length; i++) {
+                if (radioSexo[i].checked) {
+                    check = true;
+                }
+            }
+
+            if (!check) {
+                alert("Debe seleccionar un sexo");
+            }
+
+            console.log("anda?");
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>registro</h1>
+    <form>
+        nombre <br>
+        <input type="text" id="txtNombre"><br>
+
+        apellido <br>
+        <input type="text" id="txtApellido"><br>
+
+        edad <br>
+        <input type="text" id="txtEdad"> <br>
+
+        sexo <br>
+        <input type="radio" name="sexo" value="masculino">masc<br>
+        <input type="radio" name="sexo" value="femenino">fem<br>
+
+        deporte <br>
+        <select name="deporte" id="cbDeportes">
+            <option value="">Seleccione</option>
+            <option value="tenis">tenis</option>
+            <option value="ftb">futbol</option>
+        </select> <br>
+
+        <button type="button" onclick="validarForm()">Validar</button>
+
+
+    </form>
+</body>
+
+</html>
